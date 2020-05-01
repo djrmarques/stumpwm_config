@@ -35,11 +35,10 @@
 
 ;; C-t M-s is a terrble binding, but you get the idea.
 (define-key *root-map* (kbd "g") "google")
-(define-key *root-map* (kbd "i") "imdb")
 (define-key *root-map* (kbd "y") "youtube")
 
 ;; Reload
-(define-key *root-map* (kbd "r") "reload")
+(define-key *root-map* (kbd "r") "restart-hard")
 
 ;; Quit
 (define-key *root-map* (kbd "q") "quit")
