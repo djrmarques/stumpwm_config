@@ -82,3 +82,5 @@
   (0 t t :create "emacs-dump" :class "Emacs"))
 
 
+;; Swap caps with escape
+(run-shell-command "setxkbmap -option caps:swapescape")
