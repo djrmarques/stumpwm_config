@@ -84,3 +84,7 @@
 
 ;; Swap caps with escape
 (run-shell-command "setxkbmap -option caps:swapescape")
+
+;; Autostart emacs on startup
+(run-shell-command "emacs")
+
