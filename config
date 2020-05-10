@@ -13,9 +13,9 @@
     (nsubstitute #\+ #\Space search)
     (run-shell-command (concatenate 'string ,prefix search))))
 
-(make-web-jump "google" "firefox http://www.google.fr/search?q=")
-(make-web-jump "imdb" "firefox http://www.imdb.com/find?q=")
-(make-web-jump "youtube" "firefox https://www.youtube.com/results?search_query=")
+(make-web-jump "google" "next http://www.google.fr/search?q=")
+(make-web-jump "imdb" "next http://www.imdb.com/find?q=")
+(make-web-jump "youtube" "next https://www.youtube.com/results?search_query=")
 
 ;; C-t M-s is a terrble binding, but you get the idea.
 (define-key *root-map* (kbd "g") "google")
@@ -26,13 +26,17 @@
 
 ;; Quit
 (define-key *root-map* (kbd "q") "quit")
-
+ 
 ;; Message window font
 (set-font "Hack:style=Regular")
 
 ;; Swap caps with escape
-(run-shell-command "setxkbmap -option caps:escape")
+(run-shell-command "setxkbmap -option ctrl:nocaps")
 
-;; Autostart emacs on startup
-(run-shell-command "emacs")
+(defmacro create-command (command name)
+  `(defcommand ,name () ()
+    (run-shell-command ,command)
+     ))
 
+(create-command "firefox" firefox)
+(create-comand "next-browser" next)
