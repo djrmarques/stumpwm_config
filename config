@@ -72,6 +72,6 @@
 (create-command "volume-down" "amixer -q sset Master 3%-" )
 (create-command "mute" "amixer -q sset Master toggle")
 
-(define-key *top-map* (kbd "XF86AudioLowerVolume")   "volume-up")
-(define-key *top-map* (kbd "XF86AudioRaiseVolume")   "volume-down")
+(define-key *top-map* (kbd "XF86AudioLowerVolume")   "volume-down")
+(define-key *top-map* (kbd "XF86AudioRaiseVolume")   "volume-up")
 (define-key *top-map* (kbd "XF86AudioMute")          "mute")
