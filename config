@@ -33,10 +33,14 @@
 ;; Swap caps with escape
 (run-shell-command "setxkbmap -option ctrl:nocaps")
 
-(defmacro create-command (command name)
-  `(defcommand ,name () ()
+(defmacro create-command (name command)
+  `(defcommand ,(intern name) () ()
     (run-shell-command ,command)
-     ))
+))
 
-(create-command "firefox" firefox)
-(create-comand "next-browser" next)
+(create-command "firefox" "firefox")
+(create-command "spotify" "spotify")
+(create-command "nextbrowser" "next") 
+
+;; Groups
+(gnew "Music")
