@@ -41,6 +41,37 @@
 (create-command "firefox" "firefox")
 (create-command "spotify" "spotify")
 (create-command "nextbrowser" "next") 
+(create-command "thunderbird" "thunderbird") 
 
+;; Shortcuts
+(define-key *root-map* (kbd "s") "spotify")
+(define-key *root-map* (kbd "t") "thunderbird")
+
+(clear-window-placement-rules)
 ;; Groups
-(gnew "Music")
+;; Create the groups
+(mapcar 'gnew '("Spotify" "Emacs" "Mail"))
+
+;; https://github.com/stumpwm/stumpwm/blob/master/sample-stumpwmrc.lisp
+(define-frame-preference "Spotify"
+    (0 t t :instance "spotify")
+    )
+
+(define-frame-preference "Mail"
+  (0 t t :class "thunderbird"))
+
+(define-frame-preference "Emacs"
+  (0 t t :class "Emacs"))
+
+;; Sound
+(define-keysym #x1008ff11 "XF86AudioLowerVolume")
+(define-keysym #x1008ff12 "XF86AudioMute")
+(define-keysym #x1008ff13 "XF86AudioRaiseVolume")
+
+(create-command "volume-up" "amixer -q sset Master 3%+" )
+(create-command "volume-down" "amixer -q sset Master 3%-" )
+(create-command "mute" "amixer -q sset Master toggle")
+
+(define-key *top-map* (kbd "XF86AudioLowerVolume")   "volume-up")
+(define-key *top-map* (kbd "XF86AudioRaiseVolume")   "volume-down")
+(define-key *top-map* (kbd "XF86AudioMute")          "mute")
