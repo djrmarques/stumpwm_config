@@ -50,12 +50,7 @@
 (clear-window-placement-rules)
 ;; Groups
 ;; Create the groups
-(mapcar 'gnew '("Spotify" "Emacs" "Mail"))
-
-;; https://github.com/stumpwm/stumpwm/blob/master/sample-stumpwmrc.lisp
-(define-frame-preference "Spotify"
-    (0 t t :instance "spotify")
-    )
+(mapcar 'gnew '("Emacs" "Mail"))
 
 (define-frame-preference "Mail"
   (0 t t :class "thunderbird"))
