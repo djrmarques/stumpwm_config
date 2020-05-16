@@ -46,17 +46,21 @@
 ;; Shortcuts
 (define-key *root-map* (kbd "s") "spotify")
 (define-key *root-map* (kbd "t") "thunderbird")
+(define-key *root-map* (kbd "f") "firefox")
 
 (clear-window-placement-rules)
 ;; Groups
 ;; Create the groups
-(mapcar 'gnew '("Emacs" "Mail"))
+(mapcar 'gnew '("Firefox" "Emacs" "Mail" "Music"))
 
 (define-frame-preference "Mail"
   (0 t t :class "thunderbird"))
 
 (define-frame-preference "Emacs"
-  (0 t t :class "Emacs"))
+    (0 t t :class "Emacs"))
+
+(define-frame-preference "Firefox"
+    (0 t t :class "Firefox-esr"))
 
 ;; Sound
 (define-keysym #x1008ff11 "XF86AudioLowerVolume")
